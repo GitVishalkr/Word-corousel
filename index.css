@@ -1,0 +1,50 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1::after {
+  content: "";
+  animation: show 2s infinite;
+  background-color: #5134ff;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  color: white;
+  margin-left: 5px;
+}
+
+@keyframes show {
+  0% {
+    content: ' coding';
+  }
+  25% {
+    content: ' playing';
+  }
+  50% {
+    content: ' reading';
+  }
+  75% {
+    content: ' cricket';
+  }
+  100% {
+    content: ' coding';
+  }
+}
+
+
+/*
+why is 0% and 100% identical ?
+In CSS animations, when the first and last keyframes (0% and 100%) are identical, it creates a seamless transition. This is because the animation effectively loops back to its starting point without any abrupt changes. When the animation reaches 100%, it smoothly transitions back to 0% without any visible snapping or jump.
+
+Interpolation: CSS animations work by interpolating values between keyframes. If the end value (100%) is different from the start value (0%), the browser must perform a sudden change when looping, which can create a noticeable snap.
+
+Without Matching Keyframes: If you were to change the content at 100% to something different (e.g., ' finished'), the animation would snap back to ' coding' upon completion, creating a jarring effect.
+*/
